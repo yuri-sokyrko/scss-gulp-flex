@@ -1,0 +1,389 @@
+
+/*
+================================================================================
+|                                FLEX GRID                                     |
+================================================================================
+*/
+.hidden {
+	display: none !important;
+}
+
+.flex-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 -$grid-gap;
+
+	&--full-sized{
+		margin: 0;
+		.flex-lg{
+			padding: 0;
+		}
+	}
+}
+
+.flex-xl{
+	&-12{
+		padding: 0 $grid-gap;
+		width: 100%;
+	}
+	&-11{
+		padding: 0 $grid-gap;
+		width: calc(100% - 100% / 12);
+	}
+	&-10{
+		padding: 0 $grid-gap;
+		width: calc(100% - 100% / 6);
+	}
+	&-9{
+		padding: 0 $grid-gap;
+		width: calc(100% - 100% / 3);
+	}
+	&-8{
+		padding: 0 $grid-gap;
+		width: calc(100% - 100% / 4);
+	}
+	&-7{
+		padding: 0 $grid-gap;
+		width: calc(100% / 2 + 100% / 12);
+	}
+	&-6{
+		padding: 0 $grid-gap;
+		width: calc(100% / 2);
+	}
+	&-5 {
+		padding: 0 $grid-gap;
+		width: calc(100% / 2 - 100% / 12);
+	}
+	&-4{
+		padding: 0 $grid-gap;
+		width: calc(100% / 3);
+	}
+	&-3{
+		padding: 0 $grid-gap;
+		width: calc(100% / 4);
+	}
+	&-2{
+		padding: 0 $grid-gap;
+		width: calc(100% / 6);
+	}
+	&-1{
+		padding: 0 $grid-gap;
+		width: calc(100% / 12);
+	}
+}
+
+.flex-vertical-center{
+	align-items: center;
+}
+
+.flex-vertical-start{
+	align-items: flex-start;
+}
+
+.flex-vertical-end{
+	align-items: flex-end;
+}
+
+.flex-horizontal-center{
+	justify-content: center;
+}
+
+.flex-horizontal-start{
+	justify-content: flex-start;
+}
+
+.flex-horizontal-end{
+	justify-content: flex-end;
+}
+
+.flex-horizontal-between{
+	justify-content: space-between;
+}
+
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1280px) {
+	.hidden-lg{
+		display: none !important;
+	}
+
+	.wrapper{
+		max-width: 960px;
+	}
+	
+	.flex-lg{
+		&-12{
+			padding: 0 $grid-gap;
+			width: 100%;
+		}
+		&-11{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 12);
+		}
+		&-10{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 6);
+		}
+		&-9{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 3);
+		}
+		&-8{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 4);
+		}
+		&-7{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 + 100% / 12);
+		}
+		&-6{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2);
+		}
+		&-5 {
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 - 100% / 12);
+		}
+		&-4{
+			padding: 0 $grid-gap;
+			width: calc(100% / 3);
+		}
+		&-3{
+			padding: 0 $grid-gap;
+			width: calc(100% / 4);
+		}
+		&-2{
+			padding: 0 $grid-gap;
+			width: calc(100% / 6);
+		}
+		&-1{
+			padding: 0 $grid-gap;
+			width: calc(100% / 12);
+		}
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px) {
+	.hidden-md{
+		display: none !important;
+	}
+
+	.wrapper{
+		max-width: 720px;
+	}
+	
+	.flex-md{
+		&-12{
+			padding: 0 $grid-gap;
+			width: 100%;
+		}
+		&-11{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 12);
+		}
+		&-10{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 6);
+		}
+		&-9{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 3);
+		}
+		&-8{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 4);
+		}
+		&-7{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 + 100% / 12);
+		}
+		&-6{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2);
+		}
+		&-5 {
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 - 100% / 12);
+		}
+		&-4{
+			padding: 0 $grid-gap;
+			width: calc(100% / 3);
+		}
+		&-3{
+			padding: 0 $grid-gap;
+			width: calc(100% / 4);
+		}
+		&-2{
+			padding: 0 $grid-gap;
+			width: calc(100% / 6);
+		}
+		&-1{
+			padding: 0 $grid-gap;
+			width: calc(100% / 12);
+		}
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	.hidden-sm{
+		display: none !important;
+	}
+
+	.wrapper{
+		max-width: 540px;
+	}
+	
+	.flex-sm{
+		&-12{
+			padding: 0 $grid-gap;
+			width: 100%;
+		}
+		&-11{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 12);
+		}
+		&-10{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 6);
+		}
+		&-9{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 3);
+		}
+		&-8{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 4);
+		}
+		&-7{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 + 100% / 12);
+		}
+		&-6{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2);
+		}
+		&-5 {
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 - 100% / 12);
+		}
+		&-4{
+			padding: 0 $grid-gap;
+			width: calc(100% / 3);
+		}
+		&-3{
+			padding: 0 $grid-gap;
+			width: calc(100% / 4);
+		}
+		&-2{
+			padding: 0 $grid-gap;
+			width: calc(100% / 6);
+		}
+		&-1{
+			padding: 0 $grid-gap;
+			width: calc(100% / 12);
+		}
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 575px) {
+	.hidden-xs{
+		display: none !important;
+	}
+	
+	.flex-xs{
+		&-12{
+			padding: 0 $grid-gap;
+			width: 100%;
+		}
+		&-11{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 12);
+		}
+		&-10{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 6);
+		}
+		&-9{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 3);
+		}
+		&-8{
+			padding: 0 $grid-gap;
+			width: calc(100% - 100% / 4);
+		}
+		&-7{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 + 100% / 12);
+		}
+		&-6{
+			padding: 0 $grid-gap;
+			width: calc(100% / 2);
+		}
+		&-5 {
+			padding: 0 $grid-gap;
+			width: calc(100% / 2 - 100% / 12);
+		}
+		&-4{
+			padding: 0 $grid-gap;
+			width: calc(100% / 3);
+		}
+		&-3{
+			padding: 0 $grid-gap;
+			width: calc(100% / 4);
+		}
+		&-2{
+			padding: 0 $grid-gap;
+			width: calc(100% / 6);
+		}
+		&-1{
+			padding: 0 $grid-gap;
+			width: calc(100% / 12);
+		}
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 576px) {
+	.visible-xs{
+		display: none !important;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.visible-sm{
+		display: none !important;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.visible-md{
+		display: none !important;
+	}
+}
+
+ /* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.visible-lg{
+		display: none !important;
+	}
+}

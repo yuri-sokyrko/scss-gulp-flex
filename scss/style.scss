@@ -1,0 +1,34 @@
+@import "base/_reset";
+@import "base/_fonts";
+
+/*
+================================================================================
+|                            LIBRARIES css BEGIN                               |
+================================================================================
+*/
+
+//@import "vendor/_jquery.formstyler";
+//@import "vendor/_fancybox";
+//@import "vendor/_slick";
+//@import "vendor/_mCustomScrollbar";
+//@import "vendor/_magnific-popup";
+//@import "vendor/_jquery-ui.theme";
+//@import "vendor/_jquery-ui.structure";
+
+/*
+================================================================================
+|                                COMPONENTS                                    |
+================================================================================
+*/
+@import "layout/components/_buttons";
+@import "layout/components/_forms";
+@import "layout/components/_modals";
+
+/*
+================================================================================
+|                                 TEMPLATES                                    |
+================================================================================
+*/
+@import "layout/templates/_header";
+@import "layout/templates/_footer";
+@import "layout/templates/_main";

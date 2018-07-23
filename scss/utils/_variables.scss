@@ -1,0 +1,46 @@
+/* reset */
+$min-width: 320px; 
+$max-width: 1280px; 
+$grid-gap: 15px;
+$base-bg: #FFF; 
+$base-font-size: 1.4rem; 
+$base-line-height: 1.8rem; 
+$base-font-family: 'Montserrat', sans-serif; 
+$custom-font-family: 'Montserrat', sans-serif; 
+$decor-font-family: 'Montserrat', sans-serif; 
+$default-transition: all 0.3s linear;
+
+/* main variables */
+
+// colors 
+$main-color: rgb(194, 26, 26);
+$main-hover: rgb(110, 13, 13);
+
+$custom-color: rgb(49, 15, 240);
+$custom-hover: rgb(3, 5, 143);
+
+//text, titles
+$text-color: #000;
+$title-color: #000;
+$title-font-family: $custom-font-family;
+
+$link-color: #100da9;
+$link-hover: #0000ff;
+
+$font-size-h1: 3.6rem;
+$line-height-h1: 4.2rem;
+$font-size-h2: 3.2rem;
+$line-height-h2: 3.7rem;
+$font-size-h3: 2.8rem;
+$line-height-h3: 3.2rem;
+
+//borders
+$border-color: #efefef;
+$border: 1px solid $border-color;
+
+//gradients
+$gradient-one: #000;
+$gradient-two: #fff;
+$gradient-direction: right;
+
+$gradient: (linear-gradient($gradient-direction, $color-one 0%, $gradient-two 100%));
