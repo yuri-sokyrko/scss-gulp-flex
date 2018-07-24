@@ -37,20 +37,69 @@ p{
 h1{	
 	@include font($font-size-h1,$line-height-h1,$title-color);
 	font-family: $title-font-family;
-	margin: 15px 0 15px 0;
-	font-weight: 400;	
+	margin: 0 0 15px 0;
+	font-weight: 700;	
 }
 h2{
 	@include font($font-size-h2,$line-height-h2,$title-color);
 	font-family: $title-font-family;
 	margin: 15px 0 15px 0;
-	font-weight: 400;	
+	font-weight: 700;	
 }
 h3{
 	@include font($font-size-h3,$line-height-h3,$title-color);
 	font-family: $title-font-family;
 	margin: 15px 0 15px 0;
-	font-weight: 400;
+	font-weight: 700;
+}
+
+h4{	
+	@include font($font-size-h4,$line-height-h4,$title-color);
+	font-family: $title-font-family;
+	margin: 15px 0 15px 0;
+	font-weight: 700;	
+}
+h5{
+	@include font($font-size-h5,$line-height-h5,$title-color);
+	font-family: $title-font-family;
+	margin: 15px 0 15px 0;
+	font-weight: 700;	
+}
+h6{
+	@include font($font-size-h6,$line-height-h6,$title-color);
+	font-family: $title-font-family;
+	margin: 15px 0 15px 0;
+	font-weight: 700;
+}
+
+.title {
+	display: block;
+	position: relative;
+
+	&--xl {
+		@include font($font-size-h1,$line-height-h1,$title-color);
+		font-family: $title-font-family;
+	}
+	&--lg {
+		@include font($font-size-h2,$line-height-h2,$title-color);
+		font-family: $title-font-family;
+	}
+	&--md {
+		@include font($font-size-h3,$line-height-h3,$title-color);
+		font-family: $title-font-family;
+	}
+	&--sm {
+		@include font($font-size-h4,$line-height-h4,$title-color);
+		font-family: $title-font-family;
+	}
+	&--xs {
+		@include font($font-size-h5,$line-height-h5,$title-color);
+		font-family: $title-font-family;
+	}
+	&--xxs {
+		@include font($font-size-h6,$line-height-h6,$title-color);
+		font-family: $title-font-family;
+	}
 }
 
 /* text position */
