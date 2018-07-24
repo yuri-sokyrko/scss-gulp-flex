@@ -25,14 +25,14 @@ gulp.task('scss', function() {
 				sound: false,
 		        message: "<%= error.message %>",
 		        title  : "Sass Error!"
-		    } ) )
+		    }))
 		)
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))
 		.pipe(sourcemaps.write('./map'))
 		.pipe(gulp.dest('src/tmp/css'))
 		.pipe( notify({
 				sound: false,
-				message: 'SCSS - хорошая работа!',
+				message: 'SCSS - Good Job!',
 			}
 		))
 		.pipe(browserSync.reload({stream: true}));
@@ -123,7 +123,7 @@ gulp.task('img', function() {
 
 gulp.task('dist', ['clean-dev', 'clean-dist', 'html-php', 'scss', 'scripts', 'img'], function() {
 	var distCss = gulp.src([
-			'src/tmp/css/style.css',
+			'src/tmp/css/*.css',
 		])
 	.pipe(cssnano())
 	.pipe(gulp.dest('dist/css'));
