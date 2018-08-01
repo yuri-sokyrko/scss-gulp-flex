@@ -15,8 +15,9 @@ var gulp =         require('gulp'),
 	notify =       require('gulp-notify'),
 	watch =        require('gulp-watch'),
 	babel =        require("gulp-babel"),
-	htmlmin =      require("gulp-htmlmin");
-
+	htmlmin =      require("gulp-htmlmin"),
+	plumber =      require('gulp-plumber');
+	
 gulp.task('scss', function() {
 	return gulp.src('src/scss/**/*.scss')
 		.pipe(sourcemaps.init())
@@ -30,11 +31,6 @@ gulp.task('scss', function() {
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))
 		.pipe(sourcemaps.write('./map'))
 		.pipe(gulp.dest('src/tmp/css'))
-		.pipe( notify({
-				sound: false,
-				message: 'SCSS - Good Job!',
-			}
-		))
 		.pipe(browserSync.reload({stream: true}));
 });
 
@@ -61,10 +57,17 @@ gulp.task('scripts', function() {
 			'./src/js/**/*.js'
 		])
 		.pipe(sourcemaps.init())
+		.pipe(plumber({errorHandler: notify.onError(
+			{
+				sound: false,
+		        message: "<%= error.message %>",
+		        title  : "JS - Error!"
+		    }
+		)}))
 		.pipe(babel())
 		.pipe(concat('main.js'))
 		.pipe(sourcemaps.write('./map'))
-		.pipe(gulp.dest('./src/tmp/js'));
+		.pipe(gulp.dest('./src/tmp/js'))
 });
 
 // gulp.task('css-libs', ['scss'], function() {
@@ -80,6 +83,10 @@ gulp.task('fonts-images', function() {
 
 	var devFonts = gulp.src('src/fonts/**/*')
 	.pipe(gulp.dest('src/tmp/fonts'));
+
+	var devVideo = gulp.src('src/video/**/*')
+	.pipe(gulp.dest('src/tmp/video'));
+	
 });
 
 gulp.task('clean-dev', function() {
@@ -130,6 +137,9 @@ gulp.task('dist', ['clean-dev', 'clean-dist', 'html-php', 'scss', 'scripts', 'im
 
 	var distFonts = gulp.src('src/fonts/**/*')
 	.pipe(gulp.dest('dist/fonts'));
+
+	var distVideo = gulp.src('src/video/**/*')
+	.pipe(gulp.dest('dist/video'));
 
 	var distJs = gulp.src('src/tmp/js/**/*.js')
 	.pipe(uglify())
