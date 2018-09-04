@@ -20,13 +20,6 @@
     -webkit-justify-content:flex-start;	
     -ms-flex-pack: start;
 }
-.wrapper{
-	min-width: $min-width;
-	max-width: $max-width;
-	padding: 0 calc(#{$grid-gap} * 2) 0;
-	margin: 0 auto;
-	position: relative;
-}
 
 /* titles */
 p{	
