@@ -112,7 +112,7 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1280px) {
+@media only screen and (max-width : 1279px) {
 	.hidden-lg{
 		display: none !important;
 	}
@@ -391,7 +391,7 @@
 }
 
  /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
+@media only screen and (min-width : 1280px) {
 	.visible-lg{
 		display: none !important;
 	}

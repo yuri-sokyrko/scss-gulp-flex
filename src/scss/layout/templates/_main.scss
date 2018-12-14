@@ -1,7 +1,14 @@
 
 //main styles
 
-.main-wrapper{
+body {
+	&.blocked {
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
+.main-wrapper {
 	padding: 0 0 0 0;
 	min-width: $min-width;
     width: 100%;
@@ -22,46 +29,39 @@
 }
 
 /* titles */
-p{	
+p {	
 	@include font($base-font-size,$base-line-height,$text-color);
-	margin: 15px 0 15px 0;
 	font-weight: 400;	
 }
-h1{	
+h1 {	
 	@include font($font-size-h1,$line-height-h1,$title-color);
 	font-family: $title-font-family;
-	margin: 0 0 15px 0;
 	font-weight: 700;	
 }
-h2{
+h2 {
 	@include font($font-size-h2,$line-height-h2,$title-color);
 	font-family: $title-font-family;
-	margin: 15px 0 15px 0;
 	font-weight: 700;	
 }
-h3{
+h3 {
 	@include font($font-size-h3,$line-height-h3,$title-color);
 	font-family: $title-font-family;
-	margin: 15px 0 15px 0;
 	font-weight: 700;
 }
 
-h4{	
+h4 {	
 	@include font($font-size-h4,$line-height-h4,$title-color);
 	font-family: $title-font-family;
-	margin: 15px 0 15px 0;
 	font-weight: 700;	
 }
-h5{
+h5 {
 	@include font($font-size-h5,$line-height-h5,$title-color);
 	font-family: $title-font-family;
-	margin: 15px 0 15px 0;
 	font-weight: 700;	
 }
-h6{
+h6 {
 	@include font($font-size-h6,$line-height-h6,$title-color);
 	font-family: $title-font-family;
-	margin: 15px 0 15px 0;
 	font-weight: 700;
 }
 
@@ -96,30 +96,83 @@ h6{
 }
 
 /* text position */
-.text-left{text-align: left!important}
-.text-center{text-align: center!important}
-.text-right{text-align: right!important}
-.nowrap{white-space: nowrap!important;}
+.text-left {
+	text-align: left!important
+}
 
+.text-center {
+	text-align: center!important
+}
+
+.text-right {
+	text-align: right!important
+}
+
+.nowrap {
+	 white-space: nowrap!important;
+}
 
 /* loader */
-.loaded .main-wrapper{visibility:hidden;}
-.icon-load{background:url(../img/loader.gif) no-repeat left top;width:40px;height:40px;position:fixed;left:50%;top:50%;margin-top:-20px;margin-left:-20px;display:none;}
-.loaded .icon-load{display:block;}
+.loaded .main-wrapper {
+	visibility:hidden;
+}
 
+.icon-load {
+	width:100%;
+	height:100%;
+	position:fixed;
+	top: 0;
+	left: 0;
+	display:none;
+	z-index: 999999999;
+	background-color: $base-bg;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		background:url(../img/loader.gif) no-repeat center / contain;
+		width: 190px;
+		height: 190px;
+		left: 50%;
+		top: 50%;
+		margin-top: -95px;
+		margin-left: -95px;
+		animation: preload 1.5s linear 0s infinite;
+	}
+}
+
+.loaded .icon-load {
+	display:block;
+}
+
+@keyframes preload {
+	0%, 100% {
+		opacity: 0.3;
+		transform: scale(1);
+	}
+
+	30%, 70% {
+		opacity: 0.7;
+		transform: scale(1.1);
+	}
+
+	50% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+}
 
 /*
 ================================================================================
 |                                     MAIN                                     |
 ================================================================================
 */
-.main{	
+.main {	
 	min-width: $min-width;
-	text-align:left;
     width: 100%;
 	order: 2;
-    -webkit-order: 2;
 	flex-grow: 1;
-    -webkit-flex-grow: 1;
+	text-align:left;
 	background: #fff000;
 }

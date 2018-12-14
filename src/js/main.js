@@ -1,10 +1,16 @@
+var startWindowScroll = 0;
+
 $(window).on('load', function(){
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
 		$('body').addClass('ios');
 	} else{
 		$('body').addClass('web');
 	}
-	$('body').removeClass('loaded'); 
+	$('body').removeClass('loaded');
+	// setTimeout(() => {
+	// 	$('body').removeClass('loaded');
+	// }, 1500);
+	handler();
 });
 /* viewport width */
 function viewport(){
@@ -92,7 +98,24 @@ function initMagnific() {
 			type:"inline",
 			mainClass: 'mfp-fade mfp-s-loading',
 			galery: {enabled: true},
-			//callbacks: {open: initSliders, close: destroySliders}
+			beforeOpen: function() {
+				startWindowScroll = $(window).scrollTop();
+			},
+			open: function(){
+				//initSliders
+
+				if ( $('.mfp-content').height() < $(window).height() ){
+					$('body').on('touchmove', function (e) {
+						e.preventDefault();
+					  });
+				}
+			},
+			close: function() {
+				//destroySliders
+
+				$(window).scrollTop(startWindowScroll);
+				$('body').off('touchmove');
+			}
 		});
 	}
 }
@@ -119,6 +142,16 @@ function removeToggle(toggleBlock) {
 		}
 	});
 }
+
+$(document).mouseup(function (e){
+	// if($('.js-dropdown').hasClass('opened')){
+	// 	var div = $('.js-dropdown');
+	// 	if (!div.is(e.target) && div.has(e.target).length === 0) {
+	// 		div.find('.js-dropdown__content').slideUp();
+	// 		div.removeClass('opened');
+	// 	}
+	// }
+});
 
 // function initSliders(){
 // 	$('.js-popupMainSlider').slick({

@@ -37,7 +37,7 @@
 }
 
 @mixin gradient($direction,$color1,$color2) {
-    background-image: (linear-gradient($direction, $color1, $color1));
+    background-image: (linear-gradient($direction, $color1, $color2));
 }
 
 @mixin center_transform() {
