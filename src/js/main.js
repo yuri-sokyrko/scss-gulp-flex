@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 $(window).on('resize', handler);
 
-function initMagnific() {
+function initMagnificInline() {
 	if($('.js-popup').length){
 		$('.js-popup').magnificPopup({
 			fixedBgPos: true,
@@ -117,6 +117,55 @@ function initMagnific() {
 				$('body').off('touchmove');
 			}
 		});
+	}
+}
+
+function initMagnificGallery() {
+	if($('.js-popup-gallery').length) {
+		for(let i = 0; i < $('.js-popup-gallery').length; i++) {
+			$('.js-popup-gallery').eq(i).magnificPopup({
+				delegate: 'a.img-wrapper',
+				type: 'image',
+				tLoading: 'Loading image #%curr%...',
+				mainClass: 'mfp-img-mobile mfp-with-zoom',
+				fixedBgPos: true,
+				fixedContentPos: true,
+				gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [0,1],
+					tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
+				},
+				image: {
+					tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+					titleSrc: function(item) {
+						return item.el.attr('title') + `<p>${item.el.attr('data-text')}</p>`;
+					}
+				},
+				zoom: {
+					enabled: true,
+					duration: 300
+				},
+				overflowY: 'auto',
+				callbacks: {
+					// Utils.magnificPopupConfiguration()
+					beforeOpen: function() {
+						startWindowScroll = $(window).scrollTop();
+					},
+					open: function(){
+						if ( $('.mfp-content').height() < $(window).height() ){
+							$('body').on('touchmove', function (e) {
+								e.preventDefault();
+							  });
+						}
+					},
+					close: function() {
+						$(window).scrollTop(startWindowScroll);
+						$('body').off('touchmove');
+					}
+				}
+			});
+		}
 	}
 }
 
