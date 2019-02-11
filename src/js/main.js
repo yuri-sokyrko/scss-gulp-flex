@@ -169,6 +169,39 @@ function initMagnificGallery() {
 	}
 }
 
+function initMagnificIframe() {
+	if($('.js-popup-iframe').length) {
+		$('.js-popup-iframe').magnificPopup({
+			fixedBgPos: true,
+			fixedContentPos: true,
+			showCloseBtn: true,
+			removalDelay: 300,
+			preloader: true,
+			type:"iframe",
+			mainClass: 'mfp-fade mfp-s-loading',
+			galery: {enabled: true},
+			beforeOpen: function() {
+				startWindowScroll = $(window).scrollTop();
+			},
+			open: function(){
+				//initSliders
+
+				if ( $('.mfp-content').height() < $(window).height() ){
+					$('body').on('touchmove', function (e) {
+						e.preventDefault();
+					});
+				}
+			},
+			close: function() {
+				//destroySliders
+
+				$(window).scrollTop(startWindowScroll);
+				$('body').off('touchmove');
+			}
+		});
+	}
+}
+
 function initSLick (slickItem, slickVars) {
 	slickItem.slick(slickVars).resize();
 }
