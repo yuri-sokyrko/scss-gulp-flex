@@ -1,4 +1,5 @@
 var startWindowScroll = 0;
+var $ = jQuery;
 
 $(window).on('load', function(){
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {

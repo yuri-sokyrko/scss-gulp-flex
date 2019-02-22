@@ -52,8 +52,11 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
 	return gulp.src([
-			'./src/libs/jquery/dist/jquery.min.js',
-			'./src/libs/jquery-migrate/jquery-migrate.js',
+			'./src/libs/magnific-popup/dist/jquery.magnific-popup.js',
+			'./src/libs/jquery-flipster/dist/jquery.flipster.min.js',
+			'./src/libs/slick-carousel/slick/slick.js',
+			'./src/libs/aos/dist/aos.js',
+			// './src/libs/inputmask/dist/jquery.inputmask.bundle.js',
 			'./src/js/**/*.js'
 		])
 		.pipe(sourcemaps.init())
@@ -69,6 +72,25 @@ gulp.task('scripts', function() {
 		.pipe(sourcemaps.write('./map'))
 		.pipe(gulp.dest('./src/tmp/js'))
 });
+
+/* jQuery + jQuery Migrate */
+gulp.task('main-scripts', function(){
+	return gulp.src([
+			'./src/libs/jquery/dist/jquery.min.js',
+			'./src/libs/jquery-migrate/jquery-migrate.js'
+		])
+		.pipe(sourcemaps.init())
+		.pipe(plumber({errorHandler: notify.onError(
+			{
+				sound: false,
+				message: "<%= error.message %>",
+				title  : "JS - Error!"
+			}
+		)}))
+		.pipe(concat('jquery-core.js'))
+		.pipe(sourcemaps.write('./map'))
+		.pipe(gulp.dest('./src/tmp/js'))
+})
 
 // gulp.task('css-libs', ['scss'], function() {
 // 	return gulp.src('src/tmp/css/libs.css')
@@ -93,7 +115,7 @@ gulp.task('clean-dev', function() {
 	return del.sync('src/tmp');
 });
 
-gulp.task('watch', ['clean-dev', 'fonts-images', 'browser-sync', 'html-php', 'scss', 'scripts'], function() {
+gulp.task('watch', ['clean-dev', 'fonts-images', 'browser-sync', 'html-php', 'scss', 'main-scripts', 'scripts'], function() {
 	watch('src/scss/**/*.scss', function(event, cb) {
 		 setTimeout(function() {gulp.start('scss')}, 500);
 	});
@@ -128,7 +150,7 @@ gulp.task('img', function() {
 		.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('dist', ['clean-dev', 'clean-dist', 'html-php', 'scss', 'scripts', 'img'], function() {
+gulp.task('dist', ['clean-dev', 'clean-dist', 'html-php', 'scss', 'main-scripts', 'scripts', 'img'], function() {
 	var distCss = gulp.src([
 			'src/tmp/css/*.css',
 		])
@@ -141,7 +163,11 @@ gulp.task('dist', ['clean-dev', 'clean-dist', 'html-php', 'scss', 'scripts', 'im
 	var distVideo = gulp.src('src/video/**/*')
 	.pipe(gulp.dest('dist/video'));
 
-	var distJs = gulp.src('src/tmp/js/**/*.js')
+	var distJsCore = gulp.src('src/tmp/js/jquery-core.js')
+	.pipe(uglify())
+	.pipe(gulp.dest('dist/js'));
+
+	var distJs = gulp.src('src/tmp/js/main.js')
 	.pipe(uglify())
 	.pipe(gulp.dest('dist/js'));
 
