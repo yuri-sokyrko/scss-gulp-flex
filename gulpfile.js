@@ -52,11 +52,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
 	return gulp.src([
-			'./src/libs/magnific-popup/dist/jquery.magnific-popup.js',
-			'./src/libs/jquery-flipster/dist/jquery.flipster.min.js',
-			'./src/libs/slick-carousel/slick/slick.js',
-			'./src/libs/aos/dist/aos.js',
-			// './src/libs/inputmask/dist/jquery.inputmask.bundle.js',
+			// './src/libs/magnific-popup/dist/jquery.magnific-popup.js',
 			'./src/js/**/*.js'
 		])
 		.pipe(sourcemaps.init())
