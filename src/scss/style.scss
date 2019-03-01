@@ -1,5 +1,5 @@
-@import "base/_reset";
-@import "base/_fonts";
+@import "base/reset";
+@import "base/fonts";
 
 /*
 ================================================================================
@@ -15,15 +15,16 @@
 |                                COMPONENTS                                    |
 ================================================================================
 */
-@import "layout/components/_buttons";
-@import "layout/components/_forms";
-@import "layout/components/_modals";
+@import "layout/components/buttons";
+@import "layout/components/forms";
+@import "layout/components/modals";
+@import "layout/components/text-box";
 
 /*
 ================================================================================
 |                                 TEMPLATES                                    |
 ================================================================================
 */
-@import "layout/templates/_header";
-@import "layout/templates/_footer";
-@import "layout/templates/_main";
+@import "layout/templates/header";
+@import "layout/templates/footer";
+@import "layout/templates/main";
